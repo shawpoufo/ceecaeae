@@ -1,0 +1,24 @@
+@model Artisanal.Web.Models.LoginViewModel;
+
+<form class="container w-50" method="post" asp-action="Login" asp-controller="Auth" asp-route-returnurl="@ViewBag.ReturnUrl">
+    <div class="mb-3">
+        <label class="form-label" asp-for="UserName"></label>
+        <input class="form-control" asp-for="UserName">
+        <span class="form-text text-danger" asp-validation-for="UserName"></span>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label" asp-for="PassWord"></label>
+        <input class="form-control" asp-for="PassWord">
+        <span class="form-text text-danger" asp-validation-for="PassWord"></span>
+    </div>
+    
+    <button class="btn btn-primary">Login</button>
+    <div class="mb-3 text-danger form-text">
+        @(ViewBag.BadCredentials ?? "")
+    </div>
+</form>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial"/>
+}

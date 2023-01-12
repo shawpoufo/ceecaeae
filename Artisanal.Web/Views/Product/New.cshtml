@@ -1,0 +1,39 @@
+@model ProductViewModel
+
+
+<form asp-controller="Product" asp-action="New" method="post">
+    <div class="mb-3">
+        <label class="form-label" asp-for="ProductName"></label>
+        <input class="form-control" asp-for="ProductName" />
+        <span class="text-danger" asp-validation-for="ProductName"></span>
+    </div>
+    <div class="mb-3">
+        <label class="form-label" asp-for="Price"></label>
+        <input class="form-control" asp-for="Price" />
+        <span class="text-danger" asp-validation-for="Price"></span>
+    </div>
+    <div class="mb-3">
+        <label class="form-label" asp-for="CategoryName"></label>
+        <input class="form-control" asp-for="CategoryName" />
+        <span class="text-danger" asp-validation-for="CategoryName"></span>
+    </div>
+    <div class="mb-3">
+        <label class="form-label" asp-for="ImageURL"></label>
+        <input class="form-control" asp-for="ImageURL" />
+        <span class="text-danger" asp-validation-for="ImageURL"></span>
+    </div>
+
+    
+    <div class="mb-3 row g-2">
+        <div class="col-auto">
+            <a class="btn btn-outline-secondary form-control col-auto" asp-action="Index" asp-controller="Product">Back</a>
+        </div>
+        <div class="col-auto">
+            <button class="btn btn-success form-control col-auto" type="submit">Create</button>
+        </div>
+    </div>
+</form>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial"/>
+}

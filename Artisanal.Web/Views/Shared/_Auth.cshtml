@@ -1,0 +1,13 @@
+@using Microsoft.AspNetCore.Authorization
+@using System.Security.Claims
+@inject IAuthorizationService AuthorizationService
+
+@if((await AuthorizationService.AuthorizeAsync(User,"AdminOnly")).Succeeded){
+    <label class="text-light  me-3 mt-1">@User.Identity.Name</label>
+    <a class="btn btn-outline-danger" asp-action="logout" asp-controller="Auth">
+        Signout
+    </a>
+}
+else{
+    <a class="btn btn-outline-primary" asp-action="Login" asp-controller="Auth">Login</a>
+}

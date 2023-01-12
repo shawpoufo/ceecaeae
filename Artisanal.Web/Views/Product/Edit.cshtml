@@ -1,0 +1,40 @@
+@model ProductDto
+
+
+<form asp-controller="Product" asp-action="Edit" method="post">
+    <div class="mb-3">
+        <label class="form-label" asp-for="ProductName"></label>
+        <input class="form-control" asp-for="ProductName" />
+        <span asp-validation-for="ProductName"></span>
+    </div>
+    <div class="mb-3">
+        <label class="form-label" asp-for="Price"></label>
+        <input class="form-control" asp-for="Price" />
+        <span asp-validation-for="Price"></span>
+    </div>
+    <div class="mb-3">
+        <label class="form-label" asp-for="CategoryName"></label>
+        <input class="form-control" asp-for="CategoryName" />
+        <span asp-validation-for="CategoryName"></span>
+    </div>
+    <div class="mb-3">
+        <label class="form-label" asp-for="ImageURL"></label>
+        <input class="form-control" asp-for="ImageURL" />
+        <span asp-validation-for="ImageURL"></span>
+    </div>
+
+    <input type="hidden" asp-for="ProductId" />
+    
+    <div class="mb-3 row g-2">
+        <div class="col-auto">
+            <a class="btn btn-outline-secondary form-control col-auto" asp-action="Index" asp-controller="Product">Back</a>
+        </div>
+        <div class="col-auto">
+            <button class="btn btn-success form-control col-auto" type="submit">Update</button>
+        </div>
+    </div>
+</form>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial"/>
+}
